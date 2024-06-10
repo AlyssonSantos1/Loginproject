@@ -22,12 +22,13 @@
 
         $nome= $_POST['nome'];
         $email = $_POST['email'];
+        $senha = $_POST['senha'];
         $telefone = $_POST['telefone'];
         $sexo = $_POST['sexo'];
         $idade = $_POST['idade'];
         
-        $result = mysqli_query($conexao, "INSERT INTO usuarios(nome,email,telefone,sexo,idade) 
-        VALUES ('$nome','$email','$telefone','$sexo','$idade')");
+        $result = mysqli_query($conexao, "INSERT INTO usuarios(nome,senha, email,telefone,sexo,idade) 
+        VALUES ('$nome', '$senha', '$email','$telefone','$sexo','$idade')");
 
         header('Location: configuracao.php');
     }
@@ -125,6 +126,11 @@
                 <div class="inputBox">
                     <input type="text" name="nome" id="nome" class="inputUser" required>
                     <label for="nome" class="labelInput">Nome completo</label>
+                </div>
+                <br><br>
+                <div class="inputBox">
+                    <input type="password" name="senha" id="senha" class="inputUser" required>
+                    <label for="senha" class="labelInput">senha</label>
                 </div>
                 <br><br>
                 <div class="inputBox">
