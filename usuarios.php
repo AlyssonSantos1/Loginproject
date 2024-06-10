@@ -18,19 +18,18 @@
         // print_r('<br>');
         // print_r('Endereço: ' . $_POST['endereco']);
 
-        include_once('conexao.php');
+        include_once('configuracao.php');
 
         $nome= $_POST['nome'];
         $email = $_POST['email'];
-        $senha = $_POST['senha'];
         $telefone = $_POST['telefone'];
         $sexo = $_POST['sexo'];
         $idade = $_POST['idade'];
         
-        $result = mysqli_query($conexao, "INSERT INTO usuarios(nome,senha,email,telefone,sexo,idade) 
-        VALUES ('$nome','$senha','$email','$telefone','$sexo','$idade')");
+        $result = mysqli_query($conexao, "INSERT INTO usuarios(nome,email,telefone,sexo,idade) 
+        VALUES ('$nome','$email','$telefone','$sexo','$idade')");
 
-        header('Location: login.php');
+        header('Location: configuracao.php');
     }
 
 ?>
