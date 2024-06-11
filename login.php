@@ -1,4 +1,8 @@
+<?php
 
+session_start();
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -44,7 +48,7 @@
     </style>
 </head>
 <body>
-    <a href="login.php">Back</a>
+    
     <div>
         <h1>Login</h1>
         <form action="testelogin.php" method="POST">

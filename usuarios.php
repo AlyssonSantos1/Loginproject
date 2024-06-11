@@ -118,6 +118,7 @@
     </style>
 </head>
 <body>
+    <a href="login.php">Back</a>
     <div class="box">
         <form action="usuarios.php" method="POST">
             <fieldset>
