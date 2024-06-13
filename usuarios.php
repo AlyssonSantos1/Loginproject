@@ -1,30 +1,14 @@
 <?php
 
     if(isset($_POST['submit']))
-    {
-        // print_r('Nome: ' . $_POST['nome']);
-        // print_r('<br>');
-        // print_r('Email: ' . $_POST['email']);
-        // print_r('<br>');
-        // print_r('Telefone: ' . $_POST['telefone']);
-        // print_r('<br>');
-        // print_r('Sexo: ' . $_POST['genero']);
-        // print_r('<br>');
-        // print_r('Data de nascimento: ' . $_POST['data_nascimento']);
-        // print_r('<br>');
-        // print_r('Cidade: ' . $_POST['cidade']);
-        // print_r('<br>');
-        // print_r('Estado: ' . $_POST['estado']);
-        // print_r('<br>');
-        // print_r('Endereço: ' . $_POST['endereco']);
-
+    {       
         include_once('configuracao.php');
 
         $nome= $_POST['nome'];
         $email = $_POST['email'];
         $senha = $_POST['senha'];
         $telefone = $_POST['telefone'];
-        $sexo = $_POST['sexo'];
+        $sexo = $_POST['genero'];
         $idade = $_POST['idade'];
         
         $result = mysqli_query($conexao, "INSERT INTO usuarios(nome,senha, email,telefone,sexo,idade) 
@@ -156,6 +140,7 @@
                 <label for="idade"><b>idade:</b></label>
                 <input type="idade" name="idade" id="idade" required>
                 <br><br>
+                
                 
                 <input type="submit" name="submit" id="submit">
             </fieldset>

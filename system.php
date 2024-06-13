@@ -1,7 +1,6 @@
 <?php
     include_once('configuracao.php');
     session_start();
-    // print_r($_SESSION);
     if((!isset($_SESSION['email']) == true)  and  (!isset($_SESSION['senha']) == true))
     {
         
@@ -16,7 +15,7 @@
 
     $result = $conexao->query($sql);
 
-    // print_r($result);
+   
 
 ?>
 

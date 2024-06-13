@@ -123,7 +123,7 @@
                 <legend><b>Fórmulário de Clientes</b></legend>
                 <br>
                 <div class="inputBox">
-                    <input type="text" name="nome" id="nome" class="inputUser" value="<?php echo $nome?>" required>
+                    <input type="text" name="nome" id="nome" class="inputUser" value="<?php echo $nome; ?>" required>
                     <label for="nome" class="labelInput">Nome completo</label>
                 </div>
                 <br><br>
@@ -142,17 +142,17 @@
                     <label for="telefone" class="labelInput">Telefone</label>
                 </div>
                 <p>Sexo:</p>
-                <input type="radio" id="feminino" name="genero" value="feminino" value= "<?php $sexo == 'feminino' ? 'checked' : '' ?>" required>
+                <input type="radio" id="feminino" name="genero" value="feminino" value= "<?php echo ($sexo == 'feminino') ? 'checked' : '' ?>" required>
                 <label for="feminino">Feminino</label>
                 <br>
-                <input type="radio" id="masculino" name="genero" value="masculino" value= "<?php $sexo == 'masculino' ? 'checked' : '' ?>" required>
+                <input type="radio" id="masculino" name="genero" value="masculino" value= "<?php echo ($sexo == 'masculino') ? 'checked' : '' ?>" required>
                 <label for="masculino">Masculino</label>
                 <br>
-                <input type="radio" id="outro" name="genero" value="outro" value= "<?php $sexo == 'outro' ? 'checked' : '' ?>" required> 
+                <input type="radio" id="outro" name="genero" value="outro" value= "<?php echo ($sexo == 'outro') ? 'checked' : '' ?>" required> 
                 <label for="outro">Outro</label>
                 <br><br>
                 <label for="idade"><b>idade:</b></label>
-                <input type="idade" name="idade" id="idade" required>
+                <input type="idade" name="idade" id="idade"  value="<?php echo $idade; ?>" required>
                 <br><br>
                 
                 
