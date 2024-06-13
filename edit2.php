@@ -1,9 +1,10 @@
 <?php
 
+    include_once('configuracao.php');
+
     if(!empty($_GET['id']))
     {
-        include_once('configuracao.php');
-
+        
         $id = $_GET['id'];
 
         $sqlSelect = "SELECT * FROM usuarios WHERE id=$id";
