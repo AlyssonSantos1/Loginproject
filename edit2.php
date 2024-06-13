@@ -13,20 +13,21 @@
         if($result->num_rows > 0)
         {
             while($user_data = mysqli_fetch_assoc($result))
-            $nome= $user_data['nome'];
-            $email = $user_data['email'];
-            $senha = $user_data['senha'];
-            $telefone = $user_data['telefone'];
-            $sexo = $user_data['sexo'];
-            $idade = $user_data['idade'];
+            {
+                $nome= $user_data['nome'];
+                $email = $user_data['email'];
+                $senha = $user_data['senha'];
+                $telefone = $user_data['telefone'];
+                $sexo = $user_data['sexo'];
+                $idade = $user_data['idade'];
+            }
             
         }
         else
         {
             header('Location: system.php');
-        }
-      
-       
+        } 
+
     }
 
 ?>
@@ -124,10 +125,7 @@
                     <input type="text" name="nome" id="nome" class="inputUser" value="<?php echo $nome?>" required>
                     <label for="nome" class="labelInput">Nome completo</label>
                 </div>
-                <!-- <div class="inputBox">
-                    <input type="text" name="nome" id="nome" class="inputUser" value=<?php echo $nome;?> required>
-                    <label for="nome" class="labelInput">Nome completo</label>
-                <br><br> -->
+                <br><br>
                 <div class="inputBox">
                     <input type="password" name="senha" id="senha" class="inputUser" value="<?php echo $senha; ?>" required>
                     <label for= "senha" class="labelInput">senha</label>
