@@ -24,12 +24,22 @@
             }
             
         }
+
+            else
+            {
+                header('Location: system.php');
+            } 
+        }
+
         else
         {
             header('Location: system.php');
-        } 
+        }
 
-    }
+   
+    
+
+    
 
 ?>
 

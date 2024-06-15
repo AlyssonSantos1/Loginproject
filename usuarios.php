@@ -86,7 +86,7 @@
             outline: none;
             font-size: 15px;
         }
-        #submit{
+        #update{
             background-image: linear-gradient(rgb(0, 92, 197), rgb(90, 20, 220));
             width: 20%;
             border: none;
@@ -96,7 +96,7 @@
             cursor: pointer;
             border-radius: 10px;
         }
-        #submit:hover{
+        #update:hover{
             background-image: linear-gradient(to right,rgb(0, 80, 172), rgb(80, 19, 195));
         }
     </style>
@@ -141,8 +141,8 @@
                 <input type="idade" name="idade" id="idade" required>
                 <br><br>
                 
-                
-                <input type="submit" name="submit" id="submit">
+                <input type="hidden" name="id" value="<?php echo $id?>">
+                <input type="submit" name="update" id="update">
             </fieldset>
         </form>
     </div>
