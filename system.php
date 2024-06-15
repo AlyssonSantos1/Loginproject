@@ -1,22 +1,24 @@
 <?php
-    include_once('configuracao.php');
     session_start();
-    if((!isset($_SESSION['email']) == true)  and  (!isset($_SESSION['senha']) == true))
+    include_once('configuracao.php');
+    // print_r($_SESSION);
+    if((!isset($_SESSION['email']) == true) and (!isset($_SESSION['senha']) == true))
     {
-        
-        unset ($_SESSION['email']);
-        unset ($_SESSION['senha']);
+        unset($_SESSION['email']);
+        unset($_SESSION['senha']);
         header('Location: login.php');
-
     }
     $logado = $_SESSION['email'];
-
-    $sql = "SELECT * FROM usuarios ORDER BY id DESC";
-
+    if(!empty($_GET['search']))
+    {
+        $data = $_GET['search'];
+        $sql = "SELECT * FROM usuarios WHERE id LIKE '%$data%' or nome LIKE '%$data%' or email LIKE '%$data%' ORDER BY id DESC";
+    }
+    else
+    {
+        $sql = "SELECT * FROM usuarios ORDER BY id DESC";
+    }
     $result = $conexao->query($sql);
-
-   
-
 ?>
 
 <!DOCTYPE html>
@@ -31,6 +33,18 @@
             background: linear-gradient(90deg, rgba(187,187,187,0.11808473389355745) 0%, rgba(21,232,241,0.9164040616246498) 89%, rgba(34,206,213,0.9416141456582633) 100%);
             color: blueviolet
         }
+        
+        .table-bg{
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 15px 15px 0 0;
+        }
+
+        .box-search{
+            display: flex;
+            justify-content: center;
+            gap: .1%;
+        }
+        
     </style>
     <div class="d-flex">
         <a href="logout.php" class="btn btn-danger" mx-0 >Exit</a>
@@ -40,7 +54,19 @@
 </head>
     <?php
         echo "<h1> Welcome <u>$logado</u> </h1>";
+        
+        
     ?>
+
+    <br>
+    <div class="box-search">
+        <input type="search" class="form-control w-25" placeholder="Pesquisar" id="pesquisar">
+        <button onclick="searchData()" class="btn btn-primary">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+            </svg>
+        </button>
+    </div>
     <div class="m-5">
     <table class="table text-red">
     <thead>
@@ -79,13 +105,6 @@
                         <path d='M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0z'/>
                                 </svg>
             </a>";
-              
-
-                
-                
-               
-                
-                
                 
         }
         
@@ -97,4 +116,21 @@
 <body>
     <h1>Authorized Acess System</h1>
 </body>
+<script>
+
+    var search = document.getElementById('pesquisar');
+
+    search.addEventListener("keydown", function(event) {
+        if (event.key === "Enter") 
+        {
+            searchData();
+        }
+    });
+
+    function searchData()
+    {
+        window.location = 'system.php?search='+search.value;
+    }
+</script>
+
 </html>
