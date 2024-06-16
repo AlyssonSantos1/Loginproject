@@ -123,12 +123,13 @@
         #submit:hover{
             background-image: linear-gradient(to right,rgb(0, 80, 172), rgb(80, 19, 195));
         }
+        
     </style>
 </head>
 <body>
     <a href="system.php">Back</a>
     <div class="box">
-        <form action="usuarios.php" method="POST">
+        <form action="savechanges.php" method="POST">
             <fieldset>
                 <legend><b>Fórmulário de Clientes</b></legend>
                 <br>
@@ -166,7 +167,7 @@
                 <br><br>
                 
                 
-                <input type="submit" name="submit" id="submit">
+                <input type="submit" name="update" id="submit">
             </fieldset>
         </form>
     </div>

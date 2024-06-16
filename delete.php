@@ -1,7 +1,5 @@
 <?php
 
-    include_once('configuracao.php');
-
     if(!empty($_GET['id']))
     {
         include_once('configuracao.php');
@@ -16,11 +14,13 @@
         {
             
             {
-                $sqlDelete =  "DELETE FROM usuario WHERE id=$id";
+                $sqlDelete =  "DELETE FROM usuarios WHERE id=$id";
                 $resultDelete = $conexao->query($sqlDelete);
             }
         
     }
+
+    header('Location: system.php');
 
 }
 

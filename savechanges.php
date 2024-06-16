@@ -14,7 +14,7 @@
         $sexo = $_POST['genero'];
         $idade = $_POST['idade'];
         
-        $sqlUpdate = "UPDATE usuarios SET nome = $nome ,senha = $senha, email = $email,telefone = $telefone ,sexo = $sexo,idade = $idade
+        $sqlUpdate = "UPDATE usuarios SET nome = '$nome', senha = '$senha', email = '$email', telefone = '$telefone', sexo = '$sexo', idade = '$idade'
         WHERE id='$id'";
 
         $result = $conexao->query($sqlUpdate);
