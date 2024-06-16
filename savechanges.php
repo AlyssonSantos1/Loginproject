@@ -7,6 +7,7 @@
     {       
         include_once('configuracao.php');
 
+        $id = $_POST['id'];
         $nome= $_POST['nome'];
         $email = $_POST['email'];
         $senha = $_POST['senha'];
@@ -15,7 +16,7 @@
         $idade = $_POST['idade'];
         
         $sqlUpdate = "UPDATE usuarios SET nome = '$nome', senha = '$senha', email = '$email', telefone = '$telefone', sexo = '$sexo', idade = '$idade'
-        WHERE id='$id'";
+        WHERE id=$id";
 
         $result = $conexao->query($sqlUpdate);
 

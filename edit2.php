@@ -166,7 +166,7 @@
                 <input type="idade" name="idade" id="idade"  value="<?php echo $idade; ?>" required>
                 <br><br>
                 
-                
+                <input type="hidden" name="id" value=<?php echo $id;?>>
                 <input type="submit" name="update" id="submit">
             </fieldset>
         </form>
